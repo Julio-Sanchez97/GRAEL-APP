@@ -1,0 +1,157 @@
+/*Contenedor de todo el componente Form*/
+.componentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  background: #9999a4; background: -moz-linear-gradient(to right,  #9999a4 0%,#60606b 100%); background: -webkit-linear-gradient(to right,  #9999a4 0%,#60606b 100%); background: linear-gradient(to right,  #9999a4 0%,#60606b 100%);
+}
+/*Contenedor del formulario*/
+.formContainer{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-direction: column;
+  margin: 2.5em 0.5em;
+  background-color: #D8D9DA;
+  border-radius: 1.5em;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+  padding: 1.5em 0 0 0;
+}
+/* Filas */
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.grupo{
+  display: flex;
+  flex-direction: column;
+}
+.grupoH{
+  display: flex;
+  flex-direction: row;
+}
+.grupoV{
+  display: flex;
+  flex-direction: column;
+}
+.containerPesoVolumen{
+  align-items: start;
+}
+.volumen{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.retornoCargo{
+  display: flex;
+  align-items: center;
+}
+.retornoCargo input{
+  margin: auto 1em;
+}
+.kg{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-left: 0.3em;
+  color: #555;
+}
+.label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin:  0.5rem 0;
+  text-align: left;
+}
+.checkbox{
+  transform: scale(1.1);
+}
+
+/* Estilo formControl para los elementos de entrada y selección */
+.formControl {
+  /* Aplicar los estilos deseados */
+  height: 3em;
+  font-size: 1.4rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formControl:focus {
+  border-color: #007bff; /* Cambiar el color de borde al enfocar */
+}
+/* Contenedor de botones */
+.buttonsContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.button{
+  margin: 0.5em;
+}
+.error{
+  color: red;
+}
+/*Medias Querys*/
+/*Metodo Desktop First*/
+
+@media (max-width:450px) {
+  .componentContainer{
+    flex-direction: column;
+    padding: 0 2em;
+  }
+  .buttonsContainer{
+    padding: 0 1em;
+  }
+  .containerPesoVolumen{
+    display: flex;
+    flex-direction: column;
+  }
+}
+/*--------------Movil--------------*/
+@media (min-width:451px) and (max-width:550px) {
+  .componentContainer{
+    flex-direction: column;
+    padding: 0 0.5em;
+  }
+}
+/*--------------Tablet--------------*/
+@media (min-width:551px) and (max-width:1024px){
+  .componentContainer{
+    flex-direction: column;
+    padding: 0 2em;
+  }
+  .buttonsContainer{
+    padding: 0 3em;
+  }
+}
+/*------------Computadora------------*/
+@media (min-width:1025px){
+  .componentContainer{
+    padding: 0 4em;
+  }
+  .formContainer{
+    width: 70%;
+  }
+  .row{
+    margin: 0 4em;
+  }
+  .buttonsContainer{
+    width: 30%;
+    padding: 0 0 0 1em;
+  }
+  .grupo{
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5em;
+  }
+}

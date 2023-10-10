@@ -1,0 +1,17 @@
+/* Estilos para el paginado */
+.customPagination {
+  background-color: #DFE2E2;
+  display: flex;
+	justify-content: end;
+  align-items: center;
+}
+.celdaRegistro{
+  display: flex;
+  text-align: center;
+
+}
+.fila:hover{
+  background-color: #DDE6ED;
+  cursor: pointer;
+}
+

@@ -1,0 +1,13 @@
+.tituloLogo{
+  text-decoration: none;
+  color: white;
+}
+.image{
+  width: 1.5em;
+}
+
+@media (max-width: 899px) {
+  .tituloLogo {
+    margin: 0 auto;
+  }
+}

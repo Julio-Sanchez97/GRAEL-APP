@@ -1,0 +1,69 @@
+/*Contenedor del componente Form*/
+.componentContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 4em;
+  margin: 0 auto;
+  background: #243949; background: -moz-linear-gradient(to bottom,  #243949 0%,#517fa4 100%); background: -webkit-linear-gradient(to bottom,  #243949 0%,#517fa4 100%); background: linear-gradient(to bottom,  #243949 0%,#517fa4 100%);
+}
+/*Container Form y imagen camion*/
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  overflow: hidden;
+  border-radius: 2em;
+}
+/*Contenedor de la imagen del camion*/
+.imageGraelForm{
+  background-image: url("https://i.pinimg.com/564x/54/d5/12/54d51276cf59b4eb95460cd43dd91353.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40%;
+  height: 100%;
+
+}
+
+/*Contenedor del formulario*/
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  background-color: whitesmoke;
+
+}
+/*Imagen de Login*/
+.imageContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  max-width: 12em;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.image{
+  max-width: 100%;
+  height: auto;
+}
+/*Inputs*/
+.inputContainer{
+  text-align: left;
+}
+/*Boton Login*/
+.btnLogin{
+  margin-top: 1em;
+  width: 30%;
+}
