@@ -33,7 +33,6 @@ const getAllAdminsHandler = async (req,res) => {
 const enabledUserHandler = async (req,res) => {
     const { id, enabled } = req.body
     try {
-        console.log(id, enabled);
         if (!id || typeof enabled!=="boolean") {
             throw Error("Did not pass all data")
         }

@@ -15,6 +15,7 @@ export const loginUser = (userData) => async (dispatch) => {
     const response = await axios.post("http://localhost:3002/public/login", userData);
     dispatch(loginSuccess(response.data)); // Despacha la acción cuando el inicio de sesión tenga éxito
   } catch (error) {
+    console.log(error);
     dispatch(loginFailure(error.response.data)); // Despacha la acción en caso de error
   }
 };

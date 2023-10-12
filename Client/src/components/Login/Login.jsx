@@ -18,8 +18,8 @@ const Login = () => {
   useEffect(()=>{
       if (isAuthenticated) {
         navigate("/user/form");
-      }
-      else{
+      }else{
+        navigate("/");
       }
   },[isAuthenticated])
 

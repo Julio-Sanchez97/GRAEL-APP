@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from "axios";
 
 const initialState = {
+  allUsers:null,
   users: null,
   admins: null,
   err: null,
@@ -63,9 +64,11 @@ const dashboardAdminSlice = createSlice({
   reducers: {
     // Actions
     getUsersSuccess: (state, action) => {
+      state.allUsers = action.payload;
       state.users = action.payload;
     },
     getUsersFailure: (state, action) => {
+      state.allUsers = null;
       state.users = null;
       state.err = action.payload.error;
     },
@@ -77,16 +80,6 @@ const dashboardAdminSlice = createSlice({
       state.err = action.payload.error
     },
     enabledUserSuccess: (state, action) => {
-      // let findUser = state.users?.find((user)=>{user.id === action.payload.uuid});
-      // findUser.enabled = action.payload.userStatus === "enabled" ? true: false;
-      // let filteredUsers = state.users?.filter((user)=>{user.id !== action.payload.uuid});
-      // state.users = {...filteredUsers, findUser}
-      const newArrayUsers = state.users?.map((user)=>{
-        if (user.id === action.payload.userId) {
-          user.enabled = action.payload.userStatus === "enabled" ? true: false;
-        }
-      })
-      state.users = newArrayUsers;
       state.message = action.payload.message;
     },
     enabledUserFailure: (state, action) => {

@@ -1,6 +1,4 @@
 const { User, Role, Sede, Document } = require("../db");
-const { modifyArrayUsers } = require("../utils/index")
-
 
 /************* CONTROLLERS DEL USUARIO AUTORIZADO(ADMIN) *************/
 

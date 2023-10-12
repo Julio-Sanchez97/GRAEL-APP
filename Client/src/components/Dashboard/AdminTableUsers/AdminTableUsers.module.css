@@ -5,10 +5,12 @@
 	justify-content: end;
   align-items: center;
 }
+.headTable{
+  background-color: #F0F0F0;
+}
 .celdaRegistro{
   display: flex;
   text-align: center;
-
 }
 .fila:hover{
   background-color: #DDE6ED;

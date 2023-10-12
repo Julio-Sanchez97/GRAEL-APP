@@ -18,16 +18,18 @@ import '@fontsource/roboto/700.css';
 import styles from "./Navbar.module.css"
 import { logout } from '../../redux/sessionUserSlice';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'Form'];
-const settings = ['Profile', 'Logout'];
 
 function NavbarComponent() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userRole = localStorage.getItem("userRole")?localStorage.getItem("userRole"):null
+  //Define las paginas o rutas donde podra dirigirse
+  const pages = ['Home', 'Form'];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -44,6 +46,16 @@ function NavbarComponent() {
     setAnchorElUser(null);
   };
 
+  const handlePerfil = () => {
+    handleCloseUserMenu();
+    console.log("me voy al perfil");;
+  }
+
+  const handleDashboard = () => {
+    handleCloseUserMenu();
+    navigate('/admin/dashboard');
+  }
+
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem("token");
@@ -54,7 +66,7 @@ function NavbarComponent() {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="100%" style={{"backgroundColor":"#2C3333"}}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Link to={"/user/form"} className={styles.tituloLogo}>
@@ -178,20 +190,18 @@ function NavbarComponent() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => {
-                if(setting==="Logout"){
-                  return;
-                }
-                else{
-                  return(
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  )
-                }
-              })}
-              <MenuItem key={settings[1]} onClick={handleLogout}>
-                  <Typography textAlign="center">{settings[1]}</Typography>
+              <MenuItem onClick={handlePerfil}>
+                <Typography textAlign="center">Profile</Typography>
+              </MenuItem>
+              {
+                userRole === "admin"?
+                  <MenuItem onClick={handleDashboard}>
+                    <Typography textAlign="center">Dashboard</Typography>
+                  </MenuItem>
+                  :null
+              }
+              <MenuItem onClick={handleLogout}>
+                  <Typography textAlign="center">Logout</Typography>
               </MenuItem>
             </Menu>
           </Box>

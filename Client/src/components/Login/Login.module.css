@@ -67,3 +67,29 @@
   margin-top: 1em;
   width: 30%;
 }
+
+/* Media Querys */
+@media (max-width: 500px) {
+  .componentContainer{
+    padding: 0.5em;
+  }
+  .imageGraelForm{
+    width: 0%;
+  }
+  .formContainer{
+    width: 100%;
+    padding: 0 2vw;
+  }
+}
+
+@media (max-width: 750px) {
+  .componentContainer{
+    padding: 1em;
+  }
+  .imageGraelForm{
+    width: 0%;
+  }
+  .formContainer{
+    width: 100%;
+  }
+}
