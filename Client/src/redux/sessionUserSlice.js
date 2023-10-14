@@ -10,9 +10,11 @@ const initialState = {
   message:"",
 };
 
+const URL_DEPLOY = "https://grael-app-production.up.railway.app"
+
 export const loginUser = (userData) => async (dispatch) => {
   try {
-    const response = await axios.post("http://localhost:3002/public/login", userData);
+    const response = await axios.post(`${URL_DEPLOY}/public/login`, userData);
     dispatch(loginSuccess(response.data)); // Despacha la acción cuando el inicio de sesión tenga éxito
   } catch (error) {
     console.log(error);
@@ -31,7 +33,7 @@ export const getUserById = (id) => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const user = await axios.get(`http://localhost:3002/user/${id}`,config);
+    const user = await axios.get(`${URL_DEPLOY}/user/${id}`,config);
     dispatch(getUserSuccess(user.data));
   } catch (error) {
     console.log(error);

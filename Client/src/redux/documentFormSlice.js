@@ -14,6 +14,8 @@ const initialState = {
   pdfGlobal: null,
 };
 
+const URL_DEPLOY = "https://grael-app-production.up.railway.app"
+
 export const getSedes = () => async(dispatch) => {
   try {
     const token = localStorage.getItem('token');
@@ -22,7 +24,7 @@ export const getSedes = () => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const sedes = await axios.get(`http://localhost:3002/user/sedes`,config);
+    const sedes = await axios.get(`${URL_DEPLOY}/user/sedes`,config);
     dispatch(getSedesSuccess(sedes.data));
   } catch (error) {
     console.log(error);
@@ -38,7 +40,7 @@ export const getClients = () => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const clients = await axios.get(`http://localhost:3002/user/clients`,config);
+    const clients = await axios.get(`${URL_DEPLOY}/user/clients`,config);
     dispatch(getClientsSuccess(clients.data));
   } catch (error) {
     console.log(error);
@@ -54,7 +56,7 @@ export const getProducts = () => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const products= await axios.get(`http://localhost:3002/user/products`,config);
+    const products= await axios.get(`${URL_DEPLOY}/user/products`,config);
     dispatch(getProductsSuccess(products.data));
   } catch (error) {
     console.log(error);
@@ -70,7 +72,7 @@ export const getMeasurementUnits = () => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const measurementUnits = await axios.get(`http://localhost:3002/user/measurementUnits`,config);
+    const measurementUnits = await axios.get(`${URL_DEPLOY}/user/measurementUnits`,config);
     dispatch(getMeasurementUnitsSuccess(measurementUnits.data));
   } catch (error) {
     console.log(error);
@@ -86,7 +88,7 @@ export const getPaymentTypes = () => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const paymentTypes= await axios.get(`http://localhost:3002/user/paymentTypes`,config);
+    const paymentTypes= await axios.get(`${URL_DEPLOY}/user/paymentTypes`,config);
     dispatch(getPaymentTypesSuccess(paymentTypes.data));
   } catch (error) {
     console.log(error);
@@ -102,7 +104,7 @@ export const createDocument = (values) => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const document = await axios.post(`http://localhost:3002/user/form`,values,config);
+    const document = await axios.post(`${URL_DEPLOY}/user/form`,values,config);
     dispatch(createDocumentSuccess(document.data));
   } catch (error) {
     console.log(error);
@@ -118,7 +120,7 @@ export const createPdf = (DocumentId, pdfBase64) => async(dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const pdf = await axios.post(`http://localhost:3002/user/pdf`,{DocumentId:DocumentId, pdfBase64:pdfBase64},config);
+    const pdf = await axios.post(`${URL_DEPLOY}/user/pdf`,{DocumentId:DocumentId, pdfBase64:pdfBase64},config);
     dispatch(createPdfSuccess(pdf.data));
   } catch (error) {
     console.log(error);

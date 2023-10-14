@@ -9,6 +9,8 @@ const initialState = {
   message:"",
 };
 
+const URL_DEPLOY = "https://grael-app-production.up.railway.app"
+
 export const getUsers = () => async (dispatch) => {
   try {
     const token = localStorage.getItem('token');
@@ -17,7 +19,7 @@ export const getUsers = () => async (dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const users = await axios.get(`http://localhost:3002/admin/users`,config);
+    const users = await axios.get(`${URL_DEPLOY}/admin/users`,config);
     dispatch(getUsersSuccess(users.data));
   } catch (error) {
     console.log(error);
@@ -33,7 +35,7 @@ export const getAdmins = () => async (dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const admins = await axios.get(`http://localhost:3002/admin/admins`,config);
+    const admins = await axios.get(`${URL_DEPLOY}/admin/admins`,config);
     dispatch(getAdminsSuccess(admins.data));
   } catch (error) {
     console.log(error);
@@ -49,7 +51,7 @@ export const enabledUser = (id, enabled) => async (dispatch) => {
         'Authorization': `Bearer ${token}`
       }
     };
-    const userEnabled = await axios.put(`http://localhost:3002/admin/user/enabled`,{id,enabled},config);
+    const userEnabled = await axios.put(`${URL_DEPLOY}/admin/user/enabled`,{id,enabled},config);
     dispatch(enabledUserSuccess(userEnabled.data))
   } catch (error) {
     console.log(error);
