@@ -1,0 +1,10 @@
+.documents{
+  color: blue;
+  text-decoration: underline;
+}
+.documents:hover{
+  cursor: pointer;
+}
+.cell{
+  text-align: center;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import styles from "./AdminTableUsers.module.css";
+import ModalDocumentsUser from '../../ModalDocumentsUser/ModalDocumentsUser'
 import {
   Table,
   TableBody,
@@ -94,11 +95,17 @@ const AdminTableUsers = () => {
                   </TableCell>
                   <TableCell className={styles.celdaRegistro}>{user.email}</TableCell>
                   <TableCell className={styles.celdaRegistro}>{user.Sede.name}</TableCell>
-                  <TableCell className={styles.celdaRegistro}>
-                    {/* Si no hay documentos se visualizara vacio, sino podras desplegar un modal para verlos */
-                    user?.Documents.length > 0 ? "Ver mas..." : "Vacío"
-                    }
-                  </TableCell>
+                  {/* Si el usuario tiene documentos se mostrara para verlos o sino vacio */
+                    user?.Documents.length > 0 
+                    ?<TableCell className={styles.celdaRegistro}>
+                      <ModalDocumentsUser
+                      user={user}
+                      />
+                    </TableCell>
+                    :<TableCell className={styles.celdaRegistro}>
+                      Vacío
+                    </TableCell>
+                  }
                   <TableCell className={styles.celdaRegistro}>
                     {/* Switch para cambiar el estado de habilitacion de los usuarios */}
                     <Switch

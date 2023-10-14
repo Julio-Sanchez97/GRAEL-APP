@@ -13,8 +13,6 @@ const Login = () => {
     password: "",
   });
 
-  const [error, setError] = useState(err);
-
   useEffect(()=>{
       if (isAuthenticated) {
         navigate("/user/form");
@@ -54,9 +52,8 @@ const Login = () => {
             <label className="form-label" htmlFor="password">Password</label>
             <input className="form-control form-control-lg" type="password" name="password" id="password" aria-label=".form-control-lg example" onChange={handleChange}/>
           </div>
-          
+          {err && <p className={styles.error}>{err}</p>}
           <button type="submit" className={`btn btn-primary ${styles.btnLogin}`}>Login</button>
-          {error && <p className={styles.error}>{error}</p>}
         </form>
       </div>  
     </div>

@@ -12,8 +12,4 @@
   display: flex;
   text-align: center;
 }
-.fila:hover{
-  background-color: #DDE6ED;
-  cursor: pointer;
-}
 

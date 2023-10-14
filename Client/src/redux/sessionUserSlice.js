@@ -17,6 +17,9 @@ export const loginUser = (userData) => async (dispatch) => {
   } catch (error) {
     console.log(error);
     dispatch(loginFailure(error.response.data)); // Despacha la acción en caso de error
+    setTimeout(()=>{
+      dispatch(resetError());
+    },3000);
   }
 };
 
@@ -55,6 +58,9 @@ const sessionUserSlice = createSlice({
       state.isAuthenticated = false;
       state.err = action.payload.error;
     },
+    resetError: (state) => {
+      state.err = null
+    },
     logout: (state) => {
       state.isAuthenticated = false;
       state.token = null;
@@ -75,6 +81,6 @@ const sessionUserSlice = createSlice({
   },
 });
 
-export const { loginSuccess, loginFailure, logout, getUserSuccess, getUserFailure } = sessionUserSlice.actions;
+export const { loginSuccess, loginFailure, logout, resetError, getUserSuccess, getUserFailure } = sessionUserSlice.actions;
 export default sessionUserSlice.reducer;
 

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -30,6 +29,41 @@ function NavbarComponent() {
   const userRole = localStorage.getItem("userRole")?localStorage.getItem("userRole"):null
   //Define las paginas o rutas donde podra dirigirse
   const pages = ['Home', 'Form'];
+  const settings = ['Profile', 'Dashboard', 'Logout'];
+  let settingsFiltered = []
+  if (userRole ==="admin") {
+    settingsFiltered = settings;
+  }
+  else{
+    settingsFiltered = settings.filter((setting)=>setting.toLocaleLowerCase()!=="dashboard")
+  }
+
+  const functionRotesObject = {
+    home: ()=>{
+      handleCloseNavMenu();
+      navigate("/home");
+    },
+    form: ()=>{
+      handleCloseNavMenu();
+      navigate("/user/form");
+    },
+    dashboard: ()=>{
+      handleCloseUserMenu();
+      navigate("/admin/dashboard");
+    },
+    profile: ()=>{
+      handleCloseUserMenu();
+      console.log("perfil");
+    },
+    logout: ()=>{
+      handleCloseUserMenu();
+      dispatch(logout());
+      localStorage.removeItem("token");
+      // Reemplazar la URL actual con la URL de inicio
+      window.history.replaceState({}, "", "/");
+      navigate('/'); // Redirigir a la página de inicio de sesión
+    }
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -45,24 +79,6 @@ function NavbarComponent() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  const handlePerfil = () => {
-    handleCloseUserMenu();
-    console.log("me voy al perfil");;
-  }
-
-  const handleDashboard = () => {
-    handleCloseUserMenu();
-    navigate('/admin/dashboard');
-  }
-
-  const handleLogout = () => {
-    dispatch(logout());
-    localStorage.removeItem("token");
-    // Reemplazar la URL actual con la URL de inicio
-    window.history.replaceState({}, "", "/");
-    navigate('/'); // Redirigir a la página de inicio de sesión
-  }
 
   return (
     <AppBar position="static">
@@ -117,7 +133,7 @@ function NavbarComponent() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={()=>{functionRotesObject[page.toLocaleLowerCase()]()}}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -160,7 +176,7 @@ function NavbarComponent() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={()=>{functionRotesObject[page.toLocaleLowerCase()]()}}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -190,19 +206,12 @@ function NavbarComponent() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handlePerfil}>
-                <Typography textAlign="center">Profile</Typography>
-              </MenuItem>
               {
-                userRole === "admin"?
-                  <MenuItem onClick={handleDashboard}>
-                    <Typography textAlign="center">Dashboard</Typography>
-                  </MenuItem>
-                  :null
-              }
-              <MenuItem onClick={handleLogout}>
-                  <Typography textAlign="center">Logout</Typography>
-              </MenuItem>
+              settingsFiltered.map((setting) => (
+                <MenuItem key={setting} onClick={()=>{functionRotesObject[setting.toLocaleLowerCase()]()}}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
             </Menu>
           </Box>
         </Toolbar>

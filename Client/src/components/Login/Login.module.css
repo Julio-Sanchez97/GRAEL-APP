@@ -67,6 +67,9 @@
   margin-top: 1em;
   width: 30%;
 }
+.error{
+  color: red;
+}
 
 /* Media Querys */
 @media (max-width: 500px) {

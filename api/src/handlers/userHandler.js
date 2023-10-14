@@ -70,8 +70,6 @@ const createDocumentHandler = async (req,res) => {
 const createPdfHandler = async (req,res) => {
     const {DocumentId, pdfBase64} = req.body;
     try {
-        console.log("DocID: ",DocumentId);
-        console.log("String base64: ",pdfBase64);
         if(!DocumentId || !pdfBase64){
             throw Error("No se pasaron los datos requeridos");
         }

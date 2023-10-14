@@ -2,14 +2,20 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST , DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST , DB_NAME, DB_DEPLOY } = process.env;
 
-// Configura la conexión a la base de datos MySQL
-const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
-    host: DB_HOST,
-    dialect: 'mysql',
-    logging: false
-  });
+// Configura la conexión a la base de datos MySQL de manera local
+// const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+//     host: DB_HOST,
+//     dialect: 'mysql',
+//     logging: false
+//   });
+
+// Configura la conexión a la base de datos MySQL para deploy
+const sequelize = new Sequelize(DB_DEPLOY, {
+  dialect: 'mysql',
+  logging: false
+});
 
 const basename = path.basename(__filename);
 

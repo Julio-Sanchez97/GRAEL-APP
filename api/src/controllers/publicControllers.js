@@ -40,6 +40,9 @@ const createRole = async (name, code) => {
 const loginUser = async (username,password) => {
     const user = await User.findOne({where:{username}});
     //Error al loguearse
+    if (!user) {
+        throw Error("Invalid user or password");
+    }
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!(user && isPasswordValid)){
         throw Error("Invalid user or password");

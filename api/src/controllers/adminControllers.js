@@ -1,4 +1,4 @@
-const { User, Role, Sede, Document } = require("../db");
+const { User, Role, Sede, Document, Pdf } = require("../db");
 
 /************* CONTROLLERS DEL USUARIO AUTORIZADO(ADMIN) *************/
 
@@ -16,6 +16,7 @@ const getAllUsers = async () => {
 			where: {
 				RoleId: RoleUser.id
 			},
+			attributes: ["id","username","name","lastname","email","enabled"],
 			include: [
 				{
 					model: Sede,
@@ -27,7 +28,8 @@ const getAllUsers = async () => {
 				},
 				{
 					model: Document,
-					attributes: ["id", "serieRegister"]
+					attributes: ["id", "serieRegister","updatedAt"],
+					include:Pdf,
 				}
 			]
 		});
@@ -54,6 +56,7 @@ const getAllAdmins = async () => {
 			where: {
 					RoleId: RoleAdmin.id
 			},
+			attributes: ["id","username","name","lastname","email","enabled"],
 			include: [
 				{
 					model: Sede,
@@ -65,7 +68,7 @@ const getAllAdmins = async () => {
 				},
 				{
 					model: Document,
-					attributes: ["id", "serieRegister"]
+					attributes: ["id", "serieRegister","updatedAt"]
 				}
 			]
 		});
