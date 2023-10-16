@@ -53,6 +53,7 @@ const createRoleHandler = async (req,res) => {
 const loginUserHandler = async (req,res) => {
     const { username, password} = req.body;
     try {
+        console.log("handler: ",SECRET_SESSION);
         if (!username || !password) {
             throw Error("No se pasaron todos los campos necesarios");
         } else {

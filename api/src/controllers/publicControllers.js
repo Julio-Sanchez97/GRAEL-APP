@@ -38,6 +38,7 @@ const createRole = async (name, code) => {
 
 //Login de un usuario
 const loginUser = async (username,password) => {
+    console.log("controller: ",SECRET_SESSION);
     const user = await User.findOne({where:{username}});
     //Error al loguearse
     if (!user) {
