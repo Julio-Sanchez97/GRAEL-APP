@@ -28,7 +28,7 @@ function NavbarComponent() {
   const navigate = useNavigate();
   const userRole = localStorage.getItem("userRole")?localStorage.getItem("userRole"):null
   //Define las paginas o rutas donde podra dirigirse
-  const pages = ['Form'];
+  const pages = ['Home', 'Form'];
   const settings = ['Profile', 'Dashboard', 'Logout'];
   let settingsFiltered = []
   if (userRole ==="admin") {
@@ -39,10 +39,10 @@ function NavbarComponent() {
   }
 
   const functionRotesObject = {
-    // home: ()=>{
-    //   handleCloseNavMenu();
-    //   navigate("/home");
-    // },
+    home: ()=>{
+      handleCloseNavMenu();
+      navigate("/home");
+    },
     form: ()=>{
       handleCloseNavMenu();
       navigate("/user/form");
@@ -85,7 +85,7 @@ function NavbarComponent() {
       <Container maxWidth="100%" style={{"backgroundColor":"#2C3333"}}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Link to={"/user/form"} className={styles.tituloLogo}>
+          <Link to={"/home"} className={styles.tituloLogo}>
             <Typography
               variant="h5"
               noWrap
@@ -152,7 +152,7 @@ function NavbarComponent() {
               flexDirection: 'row',
             }}>
               <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-              <Link to={"/user/form"} className={styles.tituloLogo}>
+              <Link to={"/home"} className={styles.tituloLogo}>
                 <Typography
                   variant="h5"
                   noWrap

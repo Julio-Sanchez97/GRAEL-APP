@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Form from './components/Form/Form';
 import NavbarComponent from './components/Navbar/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
+import Home from './components/Home/Home';
 
 function App() {
   const location = useLocation();
@@ -17,8 +18,8 @@ function App() {
         <Route path='/' element={<Login />} />
         {isAuthenticated ? (
           <>
+            <Route path='/home' element={<Home />} />
             <Route path='/user/form' element={<Form />} />
-            {/* <Route path='/home' element={<HomePage/>} /> */}
             {rol==="admin"
               ?<Route path='/admin/dashboard' element={<Dashboard />}/>
               :null
@@ -26,9 +27,9 @@ function App() {
           </>
         ) : (
           <>
+            <Route path='/home' element={<Navigate to={"/"}/>} />
             <Route path='/user/form' element={<Navigate to={"/"}/>} />
             <Route path='/admin/dashboard' element={<Navigate to={"/"}/>} />
-            {/* <Route path='/home' element={<Navigate to={"/"}/>} /> */}
           </>
         )}
       </Routes>
