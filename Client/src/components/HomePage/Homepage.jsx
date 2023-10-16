@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import imageCamion from '../../images/camion2.jpg';
 import Carousel from 'react-bootstrap/Carousel';
-import styles from "./Homepage.module.css";
+import styles from "./HomePage.module.css";
 import youtubeIcon from "../../images/youtube-168-svgrepo-com.svg";
 import facebookIcon from '../../images/facebook-svgrepo-com.svg';
 import instagramIcon from '../../images/instagram-svgrepo-com.svg';
@@ -10,7 +10,7 @@ import phoneIcon from '../../images/phone-svgrepo-com.svg';
 import addressIcon from '../../images/address-location-map-svgrepo-com.svg';
 import emailIcon from '../../images/email-svgrepo-com.svg'
 
-const Homepage = () => {
+const HomePage = () => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
@@ -90,4 +90,4 @@ const Homepage = () => {
   )
 }
 
-export default Homepage
+export default HomePage
