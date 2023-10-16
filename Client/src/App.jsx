@@ -4,7 +4,7 @@ import Login from './components/Login/Login';
 import Form from './components/Form/Form';
 import NavbarComponent from './components/Navbar/Navbar';
 import Dashboard from './components/Dashboard/Dashboard';
-import HomePage from './components/HomePage/HomePage.jsx';
+import HomePage from "../src/components/HomePage/HomePage";
 
 function App() {
   const location = useLocation();
