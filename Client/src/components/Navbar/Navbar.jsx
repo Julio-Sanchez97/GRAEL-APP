@@ -85,7 +85,7 @@ function NavbarComponent() {
       <Container maxWidth="100%" style={{"backgroundColor":"#2C3333"}}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Link to={"/user/form"} className={styles.tituloLogo}>
+          <Link to={"/home"} className={styles.tituloLogo}>
             <Typography
               variant="h5"
               noWrap

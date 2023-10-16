@@ -11,6 +11,7 @@ const initialState = {
 };
 
 const URL_DEPLOY = "https://grael-app-production.up.railway.app"
+//const URL_DEPLOY = "http://localhost:3002"
 
 export const loginUser = (userData) => async (dispatch) => {
   try {
