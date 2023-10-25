@@ -44,13 +44,13 @@ const Login = () => {
             <img className={styles.image} src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_1280.png" alt="icon_user" />
           </div>
           <h1>LOGIN</h1>
-          <div className={`mb-3 ${styles.inputContainer}`}>
+          <div className={`input-group-lg mb-3 ${styles.inputContainer}`}>
             <label className="form-label" htmlFor="username">Username</label>
-            <input className="form-control form-control-lg" type="text" name="username" id="username" aria-label=".form-control-lg example" onChange={handleChange}/>
+            <input className="form-control" type="text" name="username" id="username" aria-label=".form-control-lg example" onChange={handleChange}/>
           </div>
-          <div className={`mb-3 ${styles.inputContainer}`}>
+          <div className={`input-group-lg mb-3 ${styles.inputContainer}`}>
             <label className="form-label" htmlFor="password">Password</label>
-            <input className="form-control form-control-lg" type="password" name="password" id="password" aria-label=".form-control-lg example" onChange={handleChange}/>
+            <input className="form-control" type="password" name="password" id="password" aria-label=".form-control-lg example" onChange={handleChange}/>
           </div>
           {err && <p className={styles.error}>{err}</p>}
           <button type="submit" className={`btn btn-primary ${styles.btnLogin}`}>Login</button>

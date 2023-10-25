@@ -55,7 +55,7 @@ const loginUserHandler = async (req,res) => {
     try {
         console.log("handler: ",SECRET_SESSION);
         if (!username || !password) {
-            throw Error("No se pasaron todos los campos necesarios");
+            throw Error("Ingrese todos los campos");
         } else {
             const token = await loginUser(username,password);
             //Decodificando el token para obtner el uuid y role del usuario

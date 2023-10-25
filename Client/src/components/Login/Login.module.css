@@ -15,7 +15,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 70%;
   height: 80%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   overflow: hidden;
@@ -41,7 +41,6 @@
   width: 60%;
   height: 100%;
   background-color: whitesmoke;
-
 }
 /*Imagen de Login*/
 .imageContainer{
@@ -61,6 +60,7 @@
 /*Inputs*/
 .inputContainer{
   text-align: left;
+  width: 50%;
 }
 /*Boton Login*/
 .btnLogin{
@@ -68,13 +68,68 @@
   width: 30%;
 }
 .error{
-  color: red;
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  color: white;
+  text-align: left;
+  font-size: 16px;
+  background-color: #FF6969;
+  width: 50%;
+  height: 46px;
+  border-radius: 10px;
 }
 
 /* Media Querys */
+
+@media (max-width: 1200px) {
+  .componentContainer{
+    padding: 2em;
+  }
+  .container{
+    width: 80%;
+  }
+  .inputContainer{
+    width: 70%;
+  }
+  .btnLogin{
+    width: 35%;
+  }
+  .error{
+    width: 70%;
+  }
+}
+
+@media (max-width: 750px) {
+  .componentContainer{
+    padding: 1em;
+  }
+  .container{
+    width: 80%;
+  }
+  .imageGraelForm{
+    width: 0%;
+  }
+  .formContainer{
+    width: 100%;
+  }
+  .inputContainer{
+    width: 70%;
+  }
+  .btnLogin{
+    width: 35%;
+  }
+  .error{
+    width: 70%;
+  }
+}
+
 @media (max-width: 500px) {
   .componentContainer{
-    padding: 0.5em;
+    padding: 1em;
+  }
+  .container{
+    width: 90%;
   }
   .imageGraelForm{
     width: 0%;
@@ -83,16 +138,39 @@
     width: 100%;
     padding: 0 2vw;
   }
+  .inputContainer{
+    width: 80%;
+  }
+  .btnLogin{
+    width: 40%;
+  }
+  .error{
+    width: 80%;
+  }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 400px) {
   .componentContainer{
-    padding: 1em;
+    padding: 0.5em;
+  }
+  .container{
+    width: 100%;
   }
   .imageGraelForm{
     width: 0%;
   }
   .formContainer{
     width: 100%;
+    padding: 0 2vw;
+  }
+  .inputContainer{
+    width: 90%;
+  }
+  .btnLogin{
+    width: 50%;
+  }
+  .error{
+    width: 90%;
   }
 }
+
