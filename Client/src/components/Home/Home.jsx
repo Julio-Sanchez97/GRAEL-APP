@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import imageCamion from '../../images/camion2.jpg';
 import Carousel from 'react-bootstrap/Carousel';
 import styles from './Home.module.css';

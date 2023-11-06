@@ -53,7 +53,6 @@ const createRoleHandler = async (req,res) => {
 const loginUserHandler = async (req,res) => {
     const { username, password} = req.body;
     try {
-        console.log("handler: ",SECRET_SESSION);
         if (!username || !password) {
             throw Error("Ingrese todos los campos");
         } else {
@@ -68,7 +67,6 @@ const loginUserHandler = async (req,res) => {
             });
         }
     } catch (error) {
-        console.log(error);
         res.status(400).json({error: error.message});
     }
 }
